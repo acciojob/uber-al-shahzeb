@@ -55,7 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
 		Driver reqDriver=null;
 		int max = Integer.MAX_VALUE;
 		for(Driver driver: drivers){
-			if(driver.getCab().isAvailable() && driver.getDriverId()<max){
+			if(driver.getCab().getAvailable() && driver.getDriverId()<max){
 				max=driver.getDriverId();
 				reqDriver = driver;
 			}
