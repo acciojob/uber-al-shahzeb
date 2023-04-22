@@ -138,8 +138,8 @@ public class CustomerServiceImpl implements CustomerService {
 		}
 
 		tripBooking.setStatus(TripStatus.COMPLETED);
-		driverRepository2.save(driver);
-		customerRepository2.save(customer);
-//		tripBookingRepository2.save(tripBooking);
+		//driverRepository2.save(driver);
+		//customerRepository2.save(customer);
+		tripBookingRepository2.save(tripBooking);
 	}
 }
