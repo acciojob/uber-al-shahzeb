@@ -62,13 +62,13 @@ public class CustomerServiceImpl implements CustomerService {
 		}
 
 		if(reqDriver.equals(null)) {
-			tripBooking.setTripStatus(TripStatus.CANCELED);
+			tripBooking.setStatus(TripStatus.CANCELED);
 			tripBookingRepository2.save(tripBooking);
 			throw new Exception("No cab available!");
 		}
 
 		Customer customer = customerRepository2.findById(customerId).get();
-		tripBooking.setTripStatus(TripStatus.CONFIRMED);
+		tripBooking.setStatus(TripStatus.CONFIRMED);
 		tripBooking.setDriver(reqDriver);
 
 		tripBooking.setCustomer(customer);
@@ -91,7 +91,7 @@ public class CustomerServiceImpl implements CustomerService {
 		List<TripBooking> list = customer.getTripBookingList();
 		for(int i=0; i<list.size(); i++){
 			if(list.get(i).getTripBookingId()==tripId){
-				list.get(i).setTripStatus(TripStatus.CANCELED);
+				list.get(i).setStatus(TripStatus.CANCELED);
 				customer.setTripBookingList(list);
 				break;
 			}
@@ -101,13 +101,13 @@ public class CustomerServiceImpl implements CustomerService {
 		List<TripBooking> list1 = driver.getTripBookingList();
 		for(int i=0; i<list1.size(); i++){
 			if(list1.get(i).getTripBookingId()==tripId){
-				list1.get(i).setTripStatus(TripStatus.CANCELED);
+				list1.get(i).setStatus(TripStatus.CANCELED);
 				driver.setTripBookingList(list1);
 				break;
 			}
 		}
 
-		tripBooking.setTripStatus(TripStatus.CANCELED);
+		tripBooking.setStatus(TripStatus.CANCELED);
 		tripBookingRepository2.save(tripBooking);
 	}
 
@@ -121,7 +121,7 @@ public class CustomerServiceImpl implements CustomerService {
 		List<TripBooking> list = customer.getTripBookingList();
 		for(int i=0; i<list.size(); i++){
 			if(list.get(i).getTripBookingId()==tripId){
-				list.get(i).setTripStatus(TripStatus.COMPLETED);
+				list.get(i).setStatus(TripStatus.COMPLETED);
 				customer.setTripBookingList(list);
 				break;
 			}
@@ -131,13 +131,13 @@ public class CustomerServiceImpl implements CustomerService {
 		List<TripBooking> list1 = driver.getTripBookingList();
 		for(int i=0; i<list1.size(); i++){
 			if(list1.get(i).getTripBookingId()==tripId){
-				list1.get(i).setTripStatus(TripStatus.COMPLETED);
+				list1.get(i).setStatus(TripStatus.COMPLETED);
 				driver.setTripBookingList(list1);
 				break;
 			}
 		}
 
-		tripBooking.setTripStatus(TripStatus.COMPLETED);
+		tripBooking.setStatus(TripStatus.COMPLETED);
 		tripBookingRepository2.save(tripBooking);
 	}
 }
