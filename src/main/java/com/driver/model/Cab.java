@@ -40,7 +40,7 @@ public class Cab {
         return available;
     }
 
-    public void setAvailable(boolean available) {
+    public void getAvailable(boolean available) {
         this.available = available;
     }
 
